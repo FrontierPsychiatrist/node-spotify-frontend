@@ -39,8 +39,8 @@
         <div class="span3" id="sidebar">
           <div id="playlist-menu" ng-controller="MenuCtrl">
             <ul class="nav nav-tabs nav-stacked" id="playlists">
-              <li class="playlist-menu-entry" ng-repeat="playlist in playlists">
-                <a ng-click="loadPlaylist(playlist.id)">{{playlist.name}}</a>
+              <li ng-repeat="playlist in playlists">
+                <a class="text-abbreviation" ng-click="loadPlaylist(playlist.id)">{{playlist.name}}</a>
               </li>
             </ul>
           </div>
@@ -65,10 +65,10 @@
                 <td ng-click="star($index, playlist.id, !track.starred)">{{track.starred}}</td>
                 <td><a ng-click="play(playlist.id, $index)">&gt;</a></td>
                 <td>{{$index}}</td>
-                <td>{{track.name}}</td>
+                <td class="text-abbreviation" style="max-width: 250px">{{track.name}}</td>
                 <td>{{util.percentToTimeString(100, track.duration)}}</td>
-                <td>{{track.album.name}}</td>
-                <td>
+                <td class="text-abbreviation">{{track.album.name}}</td>
+                <td class="text-abbreviation">
                   <span ng-repeat="artist in track.artists">{{artist.name}},</span>
                 </td>
               </tr>

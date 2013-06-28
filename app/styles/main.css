@@ -7,8 +7,10 @@ body {
     overflow: hidden;
 }
 
-.playlist-menu-entry {
-    font-size: .9em;
+.text-abbreviation {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 #header {
