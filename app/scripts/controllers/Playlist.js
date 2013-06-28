@@ -1,7 +1,8 @@
 'use strict';
 /* jshint camelcase: false */
 angular.module('node-spotify')
-  .controller('PlaylistCtrl', function($scope, socket, events) {
+  .controller('PlaylistCtrl', function($scope, socket, events, util) {
+    $scope.util = util;
     $scope.playlist = {name: 'Choose a playlist'};
 
     socket.on(events.playlist_tracks, function(data) {
@@ -19,6 +20,7 @@ angular.module('node-spotify')
     };
 
     $scope.star = function(trackId, playlistId, starred) {
+      $scope.playlist.tracks[trackId].starred = starred;
       socket.emit(events.track_set_starred, {trackId: trackId, playlistId: playlistId, starred: starred});
     };
   });

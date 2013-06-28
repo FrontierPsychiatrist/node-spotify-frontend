@@ -2,7 +2,7 @@
 /* jshint camelcase: false */
 /* global $ */
 angular.module('node-spotify')
-  .controller('PlayerCtrl', function ($scope, socket, events) {
+  .controller('PlayerCtrl', function ($scope, socket, events, util) {
     var currentSecond = 0;
     var songLengthInSeconds = 239;
     var $seekbar;
@@ -42,12 +42,7 @@ angular.module('node-spotify')
         value: 0.1,
         layout: 'horizontal',
         formater: function(val) {
-          var seconds = val/100 * songLengthInSeconds;
-          var secondsInMinute = Math.floor( seconds % 60 );
-          if(secondsInMinute < 10) {
-            secondsInMinute = '0' + secondsInMinute;
-          }
-          return Math.floor(seconds / 60) + ':' + secondsInMinute;
+          return util.percentToTimeString(val, songLengthInSeconds);
         }
       }).on('slideStop', function(event) {
         console.log(event.value);
