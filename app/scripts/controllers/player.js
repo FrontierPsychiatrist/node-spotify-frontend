@@ -13,7 +13,6 @@ angular.module('node-spotify')
     });
 
     socket.on(events.now_playing_data_changed, function(data) {
-      console.log(data);
       songLengthInSeconds = data.track.duration;
     });
 
