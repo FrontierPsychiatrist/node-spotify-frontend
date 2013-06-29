@@ -7,6 +7,7 @@
       playlist_new: 'playlist_new',
       playlist_renamed: 'playlist_renamed',
       playlist_tracks: 'playlist_tracks',
+      playlist_tracks_changed: 'playlist_tracks_changed',
 
       /* Tracks */
       track_set_starred: 'track_set_starred',
