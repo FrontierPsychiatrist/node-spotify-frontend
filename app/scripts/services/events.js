@@ -8,6 +8,7 @@
       playlist_renamed: 'playlist_renamed',
       playlist_tracks: 'playlist_tracks',
       playlist_tracks_changed: 'playlist_tracks_changed',
+      playlist_image: 'events.playlist_image',
 
       /* Tracks */
       track_set_starred: 'track_set_starred',
