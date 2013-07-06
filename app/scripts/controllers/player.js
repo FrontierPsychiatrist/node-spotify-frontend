@@ -45,6 +45,6 @@ angular.module('node-spotify')
           return util.percentToTimeString(val, songLengthInSeconds);
         }
       }).on('slideStop', function(event) {
-        console.log(event.value);
+        socket.emit(events.player_seek, songLengthInSeconds * event.value/100);
       });
   });
