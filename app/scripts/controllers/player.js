@@ -7,13 +7,14 @@ angular.module('node-spotify')
     var songLengthInSeconds = 239;
     var $seekbar;
 
-    socket.on(events.player_second_in_song, function(data) {
+    var setSecond = function (data) {
       currentSecond = data;
       $seekbar.slider('setValue', currentSecond * 100 / songLengthInSeconds);
-    });
+    };
+
+    socket.on(events.player_second_in_song, setSecond);
 
     socket.on(events.now_playing_data_changed, function(data) {
-      console.log(data);
       songLengthInSeconds = data.track.duration;
     });
 
@@ -44,7 +45,10 @@ angular.module('node-spotify')
         formater: function(val) {
           return util.percentToTimeString(val, songLengthInSeconds);
         }
-      }).on('slideStop', function(event) {
-        socket.emit(events.player_seek, songLengthInSeconds * event.value/100);
-      });
+      }).on('slideStart', function() {
+          socket.off(events.player_second_in_song);
+        }).on('slideStop', function(event) {
+          socket.emit(events.player_seek, songLengthInSeconds * event.value/100);
+          socket.on(events.player_second_in_song, setSecond);
+        });
   });

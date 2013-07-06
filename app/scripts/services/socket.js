@@ -22,6 +22,9 @@ angular.module('node-spotify')
             }
           });
         });
+      },
+      off: function(eventName) {
+        socket.removeAllListeners(eventName);
       }
     };
   });
