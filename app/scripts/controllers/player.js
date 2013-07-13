@@ -14,8 +14,8 @@ angular.module('node-spotify')
 
     socket.on(events.player_second_in_song, setSecond);
 
-    socket.on(events.now_playing_data_changed, function(data) {
-      songLengthInSeconds = data.track.duration;
+    socket.on(events.now_playing_data_changed, function(track) {
+      songLengthInSeconds = track.duration;
     });
 
     $scope.pause = function() {

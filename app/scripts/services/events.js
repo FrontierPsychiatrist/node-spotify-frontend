@@ -29,9 +29,8 @@
       player_second_in_song: 'player_second_in_song',
       player_end_of_track: 'player_end_of_track',
       now_playing_picture_changed: 'now_playing_picture_changed',
+      now_playing_data_changed: 'now_playing_data_changed',
       player_seek: 'player_seek'
-
-      //now_playing_data_changed: 'now_playing_data_changed'
     };
 
     return events;

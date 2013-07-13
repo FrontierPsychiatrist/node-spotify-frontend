@@ -63,3 +63,7 @@ body {
 #playlist td {
     line-height: 15px;
 }
+
+.playing > td { /* we need to use td as table-striped sets td background colors */
+    background-color: greenyellow !important;
+}

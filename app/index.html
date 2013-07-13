@@ -55,17 +55,15 @@
               <tr>
                   <th style="width: 10px"></th>
                   <th style="width: 10px"></th>
-                  <th style="width: 10px"></th>
                   <th>Track</th>
                   <th>Length</th>
                   <th>Album</th>
                   <th>Artists</th>
               </tr>
-              <tr ng-repeat="track in playlist.tracks">
+              <tr ng-repeat="track in playlist.tracks" ng-class="{playing: playingTrackId == track.id}">
                 <td ng-click="star($index, playlist.id, !track.starred)">{{track.starred}}</td>
-                <td><a ng-click="play(playlist.id, $index)">&gt;</a></td>
                 <td>{{$index}}</td>
-                <td class="text-abbreviation" style="max-width: 250px">{{track.name}}</td>
+                <td class="text-abbreviation" style="max-width: 250px"><a ng-click="play(playlist.id, $index)">{{track.name}}</a></td>
                 <td>{{util.percentToTimeString(100, track.duration)}}</td>
                 <td class="text-abbreviation">{{track.album.name}}</td>
                 <td class="text-abbreviation">
