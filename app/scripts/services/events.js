@@ -19,6 +19,7 @@
       login: 'login',
       logout: 'logout',
       message: 'message',
+      search_complete: 'search_complete',
 
       /* player */
       player_play: 'player_play',
